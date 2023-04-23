@@ -26,7 +26,7 @@ function TopButtons({onSelect}) {
 	return (
 		<div className="flex items-center justify-around my-6">
 			{cities.map((city) => (
-				<button key={city.id} className="text-white text-lg font-medium" onClick={() => onSelect({q: city.title})}>
+				<button key={city.id} className="text-sm text-white sm:text-lg font-medium" onClick={() => onSelect({q: city.title})}>
 					{city.title}
 				</button>
 			))}

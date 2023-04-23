@@ -20,10 +20,15 @@ function App() {
 
 	useEffect(() => {
 		const fetchWeather = async () => {
-			await getFormattedWeatherData({...query, units}).then((data) => {
-				toast.success(`Successfully fetched weather for ${data.name}, ${data.country}`);
-				setWeather(data);
-			});
+			try {
+				await getFormattedWeatherData({...query, units}).then((data) => {
+					toast.success(`Successfully fetched weather for ${data.name}, ${data.country}`);
+					setWeather(data);
+				});
+			} catch (error) {
+				toast.error(`
+				Invalid city name`);
+			}
 		};
 
 		fetchWeather();
@@ -38,7 +43,7 @@ function App() {
 	};
 
 	return (
-		<div className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}>
+		<div className={`mx-auto max-w-screen-md mt-4 py-5 sm:px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}>
 			<TopButtons onSelect={handleSelect} />
 			<Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 

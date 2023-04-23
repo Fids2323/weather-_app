@@ -20,4 +20,6 @@ Luxon
 
 Разработчик
 
-Dmitry Homsky:
+Dmitry Homsky: Fids2323
+
+Ссылка на проект: https://github.com/Fids2323/weather-app

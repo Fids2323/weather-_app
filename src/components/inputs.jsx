@@ -32,26 +32,32 @@ function Inputs({setQuery, units, setUnits}) {
 	};
 
 	return (
-		<div className="flex flex-row justify-center my-6">
-			<div className="flex flex-row w-3/4 items-center justify-center space-x-4">
+		<div className="flex flex-col md:flex-row md:justify-center md:items-center md:space-x-4 my-6">
+			<div className="flex flex-col gap-2 md:flex-row items-stretch w-full md:w-auto md:flex-1 md:items-center justify-center space-x-4">
 				<input
 					value={city}
 					onChange={(e) => setCity(e.currentTarget.value)}
 					type="text"
 					placeholder="Search..."
-					className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize"
+					className="text-sm font-light mx-2 p-2 md:w-full md:text-xl md:w-auto shadow-xl focus:outline-none capitalize"
 				/>
-				<UilSearch size={25} className="text-white cursor-pointer transition ease-out hover:scale-125" onClick={handleSearchClick} />
-				<UilLocationPoint size={25} className="text-white cursor-pointer transition ease-out hover:scale-125" onClick={handleLocationClick} />
-			</div>
-			<div className="flex flex-row w-1/4 items-center justify-center">
-				<button name="metric" className="text-xl text-white font-light transition ease-out hover:scale-125" onClick={handleUnitsChange}>
-					°C
-				</button>
-				<p className="text-xl text-white mx-1">|</p>
-				<button name="imperial" className="text-xl text-white font-light transition ease-out hover:scale-125" onClick={handleUnitsChange}>
-					°F
-				</button>
+
+				<div className="flex items-center justify-between gap-4">
+					<div className="flex">
+						<UilSearch size={25} className="text-white cursor-pointer transition ease-out hover:scale-125" onClick={handleSearchClick} />
+						<UilLocationPoint size={25} className="text-white cursor-pointer transition ease-out hover:scale-125" onClick={handleLocationClick} />
+					</div>
+
+					<div className="flex mr-4 sm:mr-0">
+						<button name="metric" className="text-xl text-white font-light transition ease-out hover:scale-125" onClick={handleUnitsChange}>
+							°C
+						</button>
+						<p className="text-xl text-white mx-1">|</p>
+						<button name="imperial" className="text-xl text-white font-light transition ease-out hover:scale-125" onClick={handleUnitsChange}>
+							°F
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
